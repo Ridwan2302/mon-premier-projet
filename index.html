@@ -21,7 +21,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             padding: 24px;
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
@@ -104,6 +104,15 @@
             display: inline-block;
         }
 
+        .cta-button:hover {
+            background-color: #424245;
+            transform: scale(1.02);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -115,23 +124,14 @@
             }
         }
 
-        .cta-button:hover {
-            background-color: #424245;
-            transform: scale(1.02);
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
         .footer {
             font-size: 14px;
             color: #86868b;
             font-weight: 300;
             letter-spacing: 0.01em;
             padding-top: 20px;
-            border-top: 1px solid #f5f5f7;
-            margin-top: 20px;
+            border-top: 1px solid #f2f2f7;
+            margin-top: 40px;
         }
 
         @media (max-width: 768px) {
@@ -170,11 +170,6 @@
                 font-size: 15px;
             }
         }
-
-        /* Smooth scroll animation */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
@@ -195,26 +190,15 @@
             <p>This task does not require any purchase or signup.</p>
         </div>
         
-        <a href="https://rsurvey.vercel.app" class="cta-button" target="_blank" rel="noopener">Start the survey</a>
+        <a href="https://applocked.store/cl/i/6nno9m" class="cta-button">Start the survey</a>
         
-        <div class="footer" id="footer">
+        <div class="footer">
             Confidential and anonymous • Data used for research purposes only
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            const footer = document.getElementById('footer');
-            
-            ctaButton.addEventListener('click', function(e) {
-                // Smooth button press feedback
-                ctaButton.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    ctaButton.style.transform = '';
-                }, 150);
-            });
-            
             // Add subtle animation to text elements
             const textElements = document.querySelectorAll('h1, .subheadline, .body-text, .footer');
             textElements.forEach((el, index) => {
@@ -225,6 +209,7 @@
 
             // Auto-scroll to footer after 2 seconds
             setTimeout(() => {
+                const footer = document.querySelector('.footer');
                 footer.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'end'
