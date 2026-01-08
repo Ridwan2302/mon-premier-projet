@@ -38,20 +38,12 @@
             padding: 48px 32px;
         }
 
-        .logo {
-            font-size: 21px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            margin-bottom: 80px;
-            color: #1d1d1f;
-        }
-
         h1 {
             font-size: 40px;
             font-weight: 400;
             letter-spacing: -0.015em;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: #1d1d1f;
         }
 
@@ -62,6 +54,13 @@
             line-height: 1.4;
             margin-bottom: 60px;
             color: #86868b;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subheadline-line {
+            display: block;
         }
 
         .body-text {
@@ -80,11 +79,6 @@
 
         .body-text p:last-child {
             margin-bottom: 0;
-        }
-
-        .cta-link {
-            display: inline-block;
-            text-decoration: none;
         }
 
         .cta-button {
@@ -141,15 +135,12 @@
             
             .subheadline {
                 font-size: 21px;
+                margin-bottom: 50px;
             }
             
             .body-text {
                 font-size: 16px;
                 text-align: center;
-            }
-            
-            .logo {
-                margin-bottom: 60px;
             }
         }
 
@@ -160,6 +151,7 @@
             
             .subheadline {
                 font-size: 19px;
+                margin-bottom: 40px;
             }
             
             .body-text {
@@ -170,12 +162,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">Research</div>
-        
         <h1>Help Us Improve a New Web Concept</h1>
         
         <div class="subheadline">
-            We are collecting short, anonymous feedback to better understand user perceptions.
+            <span class="subheadline-line">We are collecting short, anonymous feedback</span>
+            <span class="subheadline-line">to better understand user perceptions.</span>
         </div>
         
         <div class="body-text">
@@ -186,9 +177,7 @@
             <p>This task does not require any purchase or signup.</p>
         </div>
         
-        <a href="https://lockedapp.store/cl/i/6nno9m" class="cta-link" target="_blank" rel="noopener">
-            <button class="cta-button">Start the survey</button>
-        </a>
+        <button class="cta-button">Start the survey</button>
         
         <div class="footer">
             Confidential and anonymous • Data used for research purposes only
@@ -200,14 +189,13 @@
             const ctaButton = document.querySelector('.cta-button');
             
             ctaButton.addEventListener('click', function() {
-                // Provide subtle feedback on click
                 ctaButton.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     ctaButton.style.transform = '';
+                    alert('In a live implementation, this would redirect to the survey. This is a design demonstration.');
                 }, 150);
             });
             
-            // Add subtle animation to text elements
             const textElements = document.querySelectorAll('h1, .subheadline, .body-text, .footer');
             textElements.forEach((el, index) => {
                 el.style.opacity = '0';
