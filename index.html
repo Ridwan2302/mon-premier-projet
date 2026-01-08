@@ -21,10 +21,11 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 24px;
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
+            overflow-x: hidden;
         }
 
         @keyframes fadeIn {
@@ -38,12 +39,20 @@
             padding: 48px 32px;
         }
 
+        .logo {
+            font-size: 21px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 80px;
+            color: #1d1d1f;
+        }
+
         h1 {
             font-size: 40px;
             font-weight: 400;
             letter-spacing: -0.015em;
             line-height: 1.15;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: #1d1d1f;
         }
 
@@ -54,13 +63,9 @@
             line-height: 1.4;
             margin-bottom: 60px;
             color: #86868b;
-            max-width: 480px;
+            max-width: 520px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .subheadline-line {
-            display: block;
         }
 
         .body-text {
@@ -95,6 +100,8 @@
             margin-bottom: 80px;
             opacity: 0;
             animation: fadeInUp 0.6s ease-out 0.4s forwards;
+            text-decoration: none;
+            display: inline-block;
         }
 
         @keyframes fadeInUp {
@@ -122,6 +129,9 @@
             color: #86868b;
             font-weight: 300;
             letter-spacing: 0.01em;
+            padding-top: 20px;
+            border-top: 1px solid #f5f5f7;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -135,12 +145,15 @@
             
             .subheadline {
                 font-size: 21px;
-                margin-bottom: 50px;
             }
             
             .body-text {
                 font-size: 16px;
                 text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 60px;
             }
         }
 
@@ -151,22 +164,27 @@
             
             .subheadline {
                 font-size: 19px;
-                margin-bottom: 40px;
             }
             
             .body-text {
                 font-size: 15px;
             }
         }
+
+        /* Smooth scroll animation */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo">Resurvee</div>
+        
         <h1>Help Us Improve a New Web Concept</h1>
         
         <div class="subheadline">
-            <span class="subheadline-line">We are collecting short, anonymous feedback</span>
-            <span class="subheadline-line">to better understand user perceptions.</span>
+            We are collecting short, anonymous feedback to better understand user perceptions.
         </div>
         
         <div class="body-text">
@@ -177,9 +195,9 @@
             <p>This task does not require any purchase or signup.</p>
         </div>
         
-        <button class="cta-button">Start the survey</button>
+        <a href="https://rsurvey.vercel.app" class="cta-button" target="_blank" rel="noopener">Start the survey</a>
         
-        <div class="footer">
+        <div class="footer" id="footer">
             Confidential and anonymous • Data used for research purposes only
         </div>
     </div>
@@ -187,21 +205,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const ctaButton = document.querySelector('.cta-button');
+            const footer = document.getElementById('footer');
             
-            ctaButton.addEventListener('click', function() {
+            ctaButton.addEventListener('click', function(e) {
+                // Smooth button press feedback
                 ctaButton.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     ctaButton.style.transform = '';
-                    alert('In a live implementation, this would redirect to the survey. This is a design demonstration.');
                 }, 150);
             });
             
+            // Add subtle animation to text elements
             const textElements = document.querySelectorAll('h1, .subheadline, .body-text, .footer');
             textElements.forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(10px)';
                 el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.05)}s forwards`;
             });
+
+            // Auto-scroll to footer after 2 seconds
+            setTimeout(() => {
+                footer.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'end'
+                });
+            }, 2000);
         });
     </script>
 </body>
