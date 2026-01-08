@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Task</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            background-color: #ffffff;
+            color: #1d1d1f;
+            line-height: 1.6;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 580px;
+            width: 100%;
+            text-align: center;
+            padding: 48px 32px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 80px;
+            color: #1d1d1f;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+
+        .subheadline {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: -0.005em;
+            line-height: 1.4;
+            margin-bottom: 60px;
+            color: #86868b;
+        }
+
+        .body-text {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.65;
+            color: #515154;
+            max-width: 480px;
+            margin: 0 auto 60px;
+            text-align: left;
+        }
+
+        .body-text p {
+            margin-bottom: 28px;
+        }
+
+        .body-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            border: none;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: -0.01em;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button:hover {
+            background-color: #424245;
+            transform: scale(1.02);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #86868b;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 24px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subheadline {
+                font-size: 21px;
+            }
+            
+            .body-text {
+                font-size: 16px;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            .subheadline {
+                font-size: 19px;
+            }
+            
+            .body-text {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Research</div>
+        
+        <h1>Help Us Improve a New Web Concept</h1>
+        
+        <div class="subheadline">
+            We are collecting short, anonymous feedback to better understand user perceptions.
+        </div>
+        
+        <div class="body-text">
+            <p>Thank you for taking part in this short research task.</p>
+            <p>You will be asked to answer a few simple questions based on your first impression.</p>
+            <p>Estimated time: under 1 minute</p>
+            <p>Compensation: paid via Amazon Mechanical Turk</p>
+            <p>This task does not require any purchase or signup.</p>
+        </div>
+        
+        <a href="https://lockedapp.store/cl/i/6nno9m" class="cta-link" target="_blank" rel="noopener">
+            <button class="cta-button">Start the survey</button>
+        </a>
+        
+        <div class="footer">
+            Confidential and anonymous • Data used for research purposes only
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            
+            ctaButton.addEventListener('click', function() {
+                // Provide subtle feedback on click
+                ctaButton.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    ctaButton.style.transform = '';
+                }, 150);
+            });
+            
+            // Add subtle animation to text elements
+            const textElements = document.querySelectorAll('h1, .subheadline, .body-text, .footer');
+            textElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.05)}s forwards`;
+            });
+        });
+    </script>
+</body>
+</html>
