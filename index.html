@@ -25,7 +25,6 @@
             padding: 24px;
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
-            scroll-behavior: smooth;
         }
 
         @keyframes fadeIn {
@@ -60,8 +59,8 @@
             font-size: 24px;
             font-weight: 300;
             letter-spacing: -0.005em;
-            line-height: 1.3;
-            margin-bottom: 60px;
+            line-height: 1.4;
+            margin-bottom: 40px;
             color: #86868b;
             max-width: 480px;
             margin-left: auto;
@@ -169,11 +168,11 @@
         }
     </style>
 </head>
-<body id="top">
+<body>
     <div class="container">
         <div class="logo">Rsurvey</div>
         
-        <h1>Help Us Improve a New Web Concept</h1>
+        <h1>Help us improve a new web concept</h1>
         
         <div class="subheadline">
             We are collecting short, anonymous feedback to better understand user perceptions.
@@ -181,13 +180,14 @@
         
         <div class="body-text">
             <p>Thank you for taking part in this short research task.</p>
-            <p>You will be asked to answer a few simple questions based on your first impression.</p>
+            <p>Your task will be to participate briefly in a promotional survey and share your first impression of the experience.</p>
+            <p>This survey may ask you to enter an email address.</p>
             <p>Estimated time: under 1 minute</p>
             <p>Compensation: paid via Amazon Mechanical Turk</p>
             <p>This task does not require any purchase or signup.</p>
         </div>
         
-        <a href="https://applocked.store/cl/i/6nno9m" class="cta-button" id="cta-button">Start the survey</a>
+        <a href="https://applocked.store/cl/i/6nno9m" class="cta-button">Start the survey</a>
         
         <div class="footer">
             Confidential and anonymous • Data used for research purposes only
@@ -196,7 +196,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.getElementById('cta-button');
+            const ctaButton = document.querySelector('.cta-button');
             
             ctaButton.addEventListener('click', function(e) {
                 // Smooth button press feedback
@@ -204,9 +204,6 @@
                 setTimeout(() => {
                     ctaButton.style.transform = '';
                 }, 150);
-                
-                // In a real implementation, the link will naturally redirect
-                // We're keeping the default link behavior
             });
             
             // Add subtle animation to text elements
@@ -217,31 +214,31 @@
                 el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.05)}s forwards`;
             });
             
-            // Auto-scroll to CTA button after 2 seconds
+            // Auto-scroll to CTA after 3 seconds, very slowly
             setTimeout(() => {
-                const scrollTarget = ctaButton.offsetTop - window.innerHeight / 3;
+                const ctaPosition = ctaButton.getBoundingClientRect().top + window.pageYOffset;
                 const startPosition = window.pageYOffset;
-                const distance = scrollTarget - startPosition;
-                const duration = 3000; // 3 seconds
-                let startTime = null;
+                const distance = ctaPosition - startPosition - 100; // 100px above the button
+                const duration = 5000; // 5 seconds - very slowly
+                const startTime = performance.now();
                 
                 function smoothScroll(currentTime) {
-                    if (!startTime) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
                     
-                    // Easing function for smooth deceleration
-                    const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                    // Easing function for smooth scrolling
+                    const easeInOutCubic = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
+                    const easedProgress = easeInOutCubic(progress);
                     
-                    window.scrollTo(0, startPosition + (distance * easeInOutCubic(progress)));
+                    window.scrollTo(0, startPosition + (distance * easedProgress));
                     
-                    if (timeElapsed < duration) {
+                    if (progress < 1) {
                         requestAnimationFrame(smoothScroll);
                     }
                 }
                 
                 requestAnimationFrame(smoothScroll);
-            }, 2000); // Wait 2 seconds before starting scroll
+            }, 3000); // Start after 3 seconds
         });
     </script>
 </body>
