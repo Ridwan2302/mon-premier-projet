@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Task</title>
+    <title>Email Submit Survey</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
     <style>
         * {
@@ -38,25 +38,17 @@
             padding: 48px 32px;
         }
 
-        .logo {
-            font-size: 21px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            margin-bottom: 80px;
-            color: #1d1d1f;
-        }
-
         h1 {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: 400;
             letter-spacing: -0.015em;
             line-height: 1.15;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: #1d1d1f;
         }
 
         .subheadline {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 300;
             letter-spacing: -0.005em;
             line-height: 1.4;
@@ -78,7 +70,7 @@
         }
 
         .body-text p {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .body-text p:last-child {
@@ -136,30 +128,26 @@
             }
             
             h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .subheadline {
-                font-size: 21px;
+                font-size: 18px;
             }
             
             .body-text {
                 font-size: 16px;
                 text-align: center;
             }
-            
-            .logo {
-                margin-bottom: 60px;
-            }
         }
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 28px;
+                font-size: 24px;
             }
             
             .subheadline {
-                font-size: 19px;
+                font-size: 16px;
             }
             
             .body-text {
@@ -170,19 +158,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">Rsurvey</div>
-        
-        <h1>Short Email Submission Survey</h1>
+        <h1>Email Submit Survey</h1>
         
         <div class="subheadline">
-            This is a brief promotional survey.
+            This is a brief promotional survey
         </div>
         
         <div class="body-text">
-            <p>This survey only requires answering a brief question and entering an email address to complete the task.</p>
-            <p>You may use your secondary email address if you prefer.</p>
-            <p>No purchase required</p>
-            <p>No signup required</p>
+            <p>This task requires answering two brief questions and entering an email address to complete the task.</p>
+            <p>You may use a secondary email address if you prefer.</p>
+            <p>No purchase & no signup is required</p>
             <p>Estimated time: under 1 minute</p>
             <p>Compensation: paid via Microworkers</p>
         </div>
@@ -214,31 +199,7 @@
                 el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.05)}s forwards`;
             });
             
-            // Auto-scroll to CTA after 3 seconds, very slowly
-            setTimeout(() => {
-                const ctaPosition = ctaButton.getBoundingClientRect().top + window.pageYOffset;
-                const startPosition = window.pageYOffset;
-                const distance = ctaPosition - startPosition - 100; // 100px above the button
-                const duration = 5000; // 5 seconds - very slowly
-                const startTime = performance.now();
-                
-                function smoothScroll(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    
-                    // Easing function for smooth scrolling
-                    const easeInOutCubic = t => t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
-                    const easedProgress = easeInOutCubic(progress);
-                    
-                    window.scrollTo(0, startPosition + (distance * easedProgress));
-                    
-                    if (progress < 1) {
-                        requestAnimationFrame(smoothScroll);
-                    }
-                }
-                
-                requestAnimationFrame(smoothScroll);
-            }, 3000); // Start after 3 seconds
+            // Auto-scroll functionality has been removed as requested
         });
     </script>
 </body>
