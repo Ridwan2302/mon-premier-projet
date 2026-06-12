@@ -1,204 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Task</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            line-height: 1.6;
-            font-weight: 300;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
+<title>Free Ebook | 30-Days Glow Up Guide</title>
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 580px;
-            width: 100%;
-            text-align: center;
-            padding: 48px 32px;
-        }
+<style>
 
-        h1 {
-            font-size: 32px;
-            font-weight: 400;
-            letter-spacing: -0.015em;
-            line-height: 1.15;
-            margin-bottom: 16px;
-            color: #1d1d1f;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-        .subheadline {
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: -0.005em;
-            line-height: 1.4;
-            margin-bottom: 40px;
-            color: #86868b;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+body{
+background:#f8f8f8;
+color:#111;
+overflow-x:hidden;
+}
 
-        .body-text {
-            font-size: 17px;
-            font-weight: 300;
-            line-height: 1.65;
-            color: #515154;
-            max-width: 480px;
-            margin: 0 auto 60px;
-            text-align: left;
-        }
+.hero{
+padding:30px 20px;
+text-align:left;
+background:linear-gradient(
+180deg,
+#ffffff 0%,
+#f6f6f6 100%
+);
+}
 
-        .body-text p {
-            margin-bottom: 20px;
-        }
+.badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+background:#111;
+color:white;
+font-weight:700;
+margin-bottom:20px;
+font-size: 0.9rem;
+}
 
-        .body-text p:last-child {
-            margin-bottom: 0;
-        }
+h1{
+font-size:28px;
+font-weight:900;
+line-height:1.2;
+margin-bottom:15px;
+}
 
-        .cta-button {
-            background-color: #1d1d1f;
-            color: #ffffff;
-            border: none;
-            border-radius: 980px;
-            font-size: 17px;
-            font-weight: 400;
-            padding: 14px 32px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: -0.01em;
-            margin-bottom: 80px;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out 0.4s forwards;
-            text-decoration: none;
-            display: inline-block;
-        }
+.gold{
+color:#d9a441;
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.subtitle{
+font-size:18px;
+line-height:1.5;
+max-width:550px;
+margin:0 0 30px 0;
+color:#555;
+}
 
-        .cta-button:hover {
-            background-color: #424245;
-            transform: scale(1.02);
-        }
+.highlight-yellow {
+    color: #d9a441;
+    font-weight: 800;
+    background: linear-gradient(120deg, rgba(217,164,65,0.1) 0%, rgba(217,164,65,0.1) 40%, transparent 60%);
+    padding: 0 4px;
+    border-radius: 8px;
+    display: inline-block;
+}
 
-        .cta-button:active {
-            transform: scale(0.98);
-        }
+.hero-image-container {
+    max-width: 240px;
+    margin: 0 0 20px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-        .footer {
-            font-size: 14px;
-            color: #86868b;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-        }
+.hero-image-container:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+}
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 32px 24px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-            
-            .subheadline {
-                font-size: 18px;
-            }
-            
-            .body-text {
-                font-size: 16px;
-                text-align: center;
-            }
-        }
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,.1));
+    border-radius: 18px;
+}
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 26px;
-            }
-            
-            .subheadline {
-                font-size: 17px;
-            }
-            
-            .body-text {
-                font-size: 15px;
-            }
-        }
-    </style>
+.unlock-box{
+background:white;
+margin:20px;
+padding:24px;
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.unlock-box h2{
+font-size:26px;
+margin-bottom:10px;
+font-weight: 800;
+}
+
+.unlock-box p{
+color:#555;
+line-height:1.6;
+font-size: 16px;
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.cta{
+display:block;
+margin-top:20px;
+padding:18px;
+border-radius:18px;
+background:linear-gradient(
+90deg,
+#111,
+#d9a441
+);
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:800;
+transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.section{
+padding:25px 20px;
+}
+
+.section-title{
+font-size:28px;
+font-weight:900;
+text-align:center;
+margin-bottom:20px;
+}
+
+.cards{
+display:grid;
+gap:14px;
+}
+
+.card{
+background:white;
+padding:18px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+transition: transform 0.2s ease;
+display: flex;
+flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(217,164,65,0.15);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.card img{
+width:100%;
+max-width: 160px;
+height: auto;
+border-radius:14px;
+margin-bottom:12px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+cursor: pointer;
+transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.02);
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:8px;
+text-align: center;
+font-weight: 800;
+color: #111;
+}
+
+.card p{
+color:#666;
+line-height:1.5;
+text-align: center;
+font-size: 14px;
+}
+
+.features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top: 10px;
+}
+
+.feature{
+background:white;
+border-radius:18px;
+padding:20px 12px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.feature h4{
+margin-top:10px;
+font-weight: 700;
+font-size: 1rem;
+}
+
+.bottom{
+padding:40px 20px;
+text-align:center;
+}
+
+.bottom h2{
+font-size:32px;
+font-weight:900;
+margin-bottom:15px;
+}
+
+.bottom p{
+color:#666;
+line-height:1.6;
+margin-bottom:25px;
+max-width: 450px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.big-cta{
+display:block;
+padding:20px;
+background:#111;
+color:white;
+text-decoration:none;
+font-size:20px;
+font-weight:800;
+border-radius:20px;
+transition: 0.1s ease;
+}
+
+.big-cta:hover {
+    background: #2a2a2a;
+    transform: scale(1.01);
+}
+
+.small{
+margin-top:12px;
+font-size:13px;
+color:#888;
+}
+
+/* Looksmaxing card - special dark style */
+.looksmaxing-card {
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    border: 1px solid rgba(217,164,65,0.3);
+}
+
+.looksmaxing-card h3 {
+    color: #d9a441;
+}
+
+.looksmaxing-card p {
+    color: #ccc;
+}
+
+/* =========================================== */
+/* VERY VERY VERY AESTHETIC SPACE POPUP STYLES */
+/* =========================================== */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.98) 100%);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.4s;
+    cursor: pointer;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+    cursor: default;
+}
+
+.popup-overlay.active .popup-container {
+    transform: scale(1) translateY(0);
+}
+
+.popup-image {
+    max-width: 85vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.2), 0 0 0 5px rgba(255,255,255,0.05);
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    animation: subtleGlow 2s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+    0% {
+        box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.15), 0 0 0 5px rgba(255,255,255,0.03);
+    }
+    50% {
+        box-shadow: 0 35px 70px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,215,0,0.35), 0 0 0 5px rgba(255,255,255,0.1);
+    }
+    100% {
+        box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,0,0.15), 0 0 0 5px rgba(255,255,255,0.03);
+    }
+}
+
+.popup-overlay::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.6), rgba(0,0,0,0)),
+        radial-gradient(3px 1px at 85% 15%, rgba(255,255,255,0.5), rgba(0,0,0,0)),
+        radial-gradient(1px 2px at 10% 85%, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 45% 45%, rgba(255,215,0,0.4), rgba(0,0,0,0));
+    background-size: 250px 250px, 300px 300px, 200px 200px, 280px 280px, 350px 350px;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation: starFloat 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes starFloat {
+    0% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%, 80% 90%, 120% 50%, 60% 80%, 90% 70%;
+    }
+}
+
+.popup-close {
+    position: absolute;
+    top: -45px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,215,0,0.3);
+    font-family: monospace;
+}
+
+.popup-close:hover {
+    background: rgba(255,215,0,0.3);
+    transform: rotate(90deg);
+    border-color: rgba(255,215,0,0.8);
+    color: white;
+}
+
+.popup-caption {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    display: inline-block;
+    width: auto;
+    padding: 6px 18px;
+    border-radius: 40px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,215,0,0.2);
+}
+
+.popup-caption span {
+    color: #d9a441;
+    font-weight: 600;
+}
+
+@media (max-width: 550px) {
+    .popup-image {
+        max-width: 92vw;
+        max-height: 75vh;
+    }
+    .popup-close {
+        top: -40px;
+        right: -5px;
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        text-align: center;
+    }
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-image-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card img {
+        max-width: 130px;
+    }
+    .unlock-box h2 {
+        font-size: 24px;
+    }
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Email Submit</h1>
-        
-        <div class="subheadline">
-            This is a brief promotional survey
-        </div>
-        
-        <div class="body-text">
-            <p>This task involves answering two brief questions and entering an email address to complete the task.</p>
-            <p>You may use a secondary email address if you prefer.</p>
-            <p>No purchase & no signup is required</p>
-            <p>Estimated time: under 1 minute</p>
-            <p>Compensation: paid via Microworkers</p>
-        </div>
-        
-        <a href="https://applocked.store/cl/i/6nno9m" class="cta-button">Start the survey</a>
-        
-        <div class="footer">
-            Confidential and anonymous • Data used for research purposes only
-        </div>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            
-            ctaButton.addEventListener('click', function(e) {
-                // Smooth button press feedback
-                ctaButton.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    ctaButton.style.transform = '';
-                }, 150);
-            });
-            
-            // Add subtle animation to text elements
-            const textElements = document.querySelectorAll('h1, .subheadline, .body-text, .footer');
-            textElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(10px)';
-                el.style.animation = `fadeInUp 0.6s ease-out ${0.2 + (index * 0.05)}s forwards`;
+<section class="hero">
+
+<div class="badge">
+FREE EBOOK
+</div>
+
+<h1>
+30-DAYS <span class="gold">GUIDE</span>
+</h1>
+
+<p class="subtitle">
+A complete step-by-step guide to upgrade your lifestyle, build better habits, and become the best version of yourself. <span class="highlight-yellow">30 days glow up</span> transformation.
+</p>
+
+<div class="hero-image-container" data-popup-img="https://i.postimg.cc/s2Lr0H3k/1000150180-removebg-preview.png" data-popup-title="30 Days Glow Up Guide">
+    <img class="hero-image" 
+         src="https://i.postimg.cc/s2Lr0H3k/1000150180-removebg-preview.png" 
+         alt="30 Days Glow Up Guide">
+</div>
+
+</section>
+
+<section class="unlock-box">
+
+<h2>Get the free guide</h2>
+
+<p>
+Access the complete 30-day glow up blueprint. Learn the precise steps to upgrade your lifestyle, build better habits, and transform your appearance.
+</p>
+
+<a href="https://appsave.online/cl/i/9vm73r" class="cta" target="_blank" rel="noopener noreferrer">
+INSTANT ACCESS
+</a>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+What's Inside
+</h2>
+
+<div class="cards">
+
+<!-- Card 1: Nutrition -->
+<div class="card">
+    <div class="card-number">01</div>
+    <img src="https://i.postimg.cc/mzX1ntBz/1000144378-removebg-preview.png" 
+         alt="Nutrition"
+         data-popup-img="https://i.postimg.cc/mzX1ntBz/1000144378-removebg-preview.png"
+         data-popup-title="Nutrition">
+    <h3>NUTRITION</h3>
+    <p>Learn how to eat clean, whole foods that fuel your body and improve your appearance.</p>
+</div>
+
+<!-- Card 2: Water Intake -->
+<div class="card">
+    <div class="card-number">02</div>
+    <img src="https://i.postimg.cc/pTjgc2Gk/file-0000000051f471f49fb583811f1d165c.png" 
+         alt="Water Intake"
+         data-popup-img="https://i.postimg.cc/pTjgc2Gk/file-0000000051f471f49fb583811f1d165c.png"
+         data-popup-title="Water Intake">
+    <h3>WATER INTAKE</h3>
+    <p>Learn how staying hydrated boosts energy, clears skin, and supports overall body function.</p>
+</div>
+
+<!-- Card 3: Skin Care -->
+<div class="card">
+    <div class="card-number">03</div>
+    <img src="https://i.postimg.cc/6pQFJVbv/file-00000000e6b871f4b1161c699c6f7c66.png" 
+         alt="Skin Care"
+         data-popup-img="https://i.postimg.cc/6pQFJVbv/file-00000000e6b871f4b1161c699c6f7c66.png"
+         data-popup-title="Skin Care">
+    <h3>SKIN CARE</h3>
+    <p>Learn to build a simple skincare routine for clear, healthy, and confident skin.</p>
+</div>
+
+<!-- Card 4: Sleep Quality -->
+<div class="card">
+    <div class="card-number">04</div>
+    <img src="https://i.postimg.cc/zXDgnpGj/file-00000000836471f498850ce0747f12c0-(1).png" 
+         alt="Sleep Quality"
+         data-popup-img="https://i.postimg.cc/zXDgnpGj/file-00000000836471f498850ce0747f12c0-(1).png"
+         data-popup-title="Sleep Quality">
+    <h3>SLEEP QUALITY</h3>
+    <p>Learn how 7-9 hours of quality sleep helps recovery, reduces stress, and keeps you looking refreshed.</p>
+</div>
+
+<!-- Card 5: Nail Care -->
+<div class="card">
+    <div class="card-number">05</div>
+    <img src="https://i.postimg.cc/mZYY3tNH/file-00000000e4a871f4ad8ba9e06b11568a.png" 
+         alt="Nail Care"
+         data-popup-img="https://i.postimg.cc/mZYY3tNH/file-00000000e4a871f4ad8ba9e06b11568a.png"
+         data-popup-title="Nail Care">
+    <h3>NAIL CARE</h3>
+    <p>Learn why clean, trimmed nails show discipline and attention to detail.</p>
+</div>
+
+<!-- Card 6: Clothing -->
+<div class="card">
+    <div class="card-number">06</div>
+    <img src="https://i.postimg.cc/dQy81j90/IMG-20260612-075848.png" 
+         alt="Clothing Style"
+         data-popup-img="https://i.postimg.cc/dQy81j90/IMG-20260612-075848.png"
+         data-popup-title="Clothing & Style"
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%20160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-size%3D%2212%22%20fill%3D%22%23999%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3EClothing%20Image%3C%2Ftext%3E%3C%2Fsvg%3E';">
+    <h3>CLOTHING & STYLE</h3>
+    <p>Learn how to dress with intention, choose fits that flatter your body, and elevate your overall presentation.</p>
+</div>
+
+<!-- Card 7: Looksmaxing -->
+<div class="card looksmaxing-card">
+    <div class="card-number">07</div>
+    <img src="https://i.postimg.cc/L4Ty9Y1k/file-0000000027b871f48a26a281151e4f46.png" 
+         alt="Looksmaxing"
+         data-popup-img="https://i.postimg.cc/L4Ty9Y1k/file-0000000027b871f48a26a281151e4f46.png"
+         data-popup-title="Looksmaxing">
+    <h3>LOOKSMAXING</h3>
+    <p>Learn advanced facial aesthetics techniques to enhance your natural features and achieve a sharper appearance.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Why This Guide Works
+</h2>
+
+<div class="features">
+
+<div class="feature">
+<span style="font-size: 28px;">🎯</span>
+<h4>Focused</h4>
+</div>
+
+<div class="feature">
+<span style="font-size: 28px;">🧠</span>
+<h4>Science Based</h4>
+</div>
+
+<div class="feature">
+<span style="font-size: 28px;">📈</span>
+<h4>Visible Progress</h4>
+</div>
+
+<div class="feature">
+<span style="font-size: 28px;">✅</span>
+<h4>Simple Steps</h4>
+</div>
+
+</div>
+
+</section>
+
+<section class="bottom">
+
+<h2>
+Get Instant Access
+</h2>
+
+<p>
+Join thousands already transforming their life with this free 30-day glow up guide. The methods are straightforward and designed for real results.
+</p>
+
+<a href="https://appsave.online/cl/i/9vm73r" class="big-cta" target="_blank" rel="noopener noreferrer">
+GET IT NOW
+</a>
+
+<p class="small">
+Free glow up resource. No purchase necessary.
+</p>
+
+</section>
+
+<!-- AESTHETIC SPACE POPUP MODAL -->
+<div class="popup-overlay" id="aestheticPopup">
+    <div class="popup-container">
+        <div class="popup-close" id="popupCloseBtn">✕</div>
+        <img class="popup-image" id="popupImage" src="" alt="Enlarged view">
+        <div class="popup-caption" id="popupCaption"></div>
+    </div>
+</div>
+
+<script>
+    // AESTHETIC SPACE-THEMED IMAGE POPUP
+    (function() {
+        const popupOverlay = document.getElementById('aestheticPopup');
+        const popupImage = document.getElementById('popupImage');
+        const popupCaption = document.getElementById('popupCaption');
+        const closeBtn = document.getElementById('popupCloseBtn');
+        
+        const clickableElements = document.querySelectorAll('[data-popup-img]');
+        
+        function openPopup(imageUrl, titleText) {
+            if (!popupOverlay || !popupImage) return;
+            popupImage.src = imageUrl;
+            popupImage.alt = titleText || 'Aesthetic view';
+            if (popupCaption) {
+                if (titleText) {
+                    popupCaption.innerHTML = `<span>✦</span> ${titleText} <span>✦</span>`;
+                } else {
+                    popupCaption.innerHTML = `<span>✦</span> glow up aesthetics <span>✦</span>`;
+                }
+            }
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePopup() {
+            if (!popupOverlay) return;
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        clickableElements.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const imgUrl = element.getAttribute('data-popup-img');
+                const imgTitle = element.getAttribute('data-popup-title') || '';
+                if (imgUrl) {
+                    openPopup(imgUrl, imgTitle);
+                }
             });
         });
-    </script>
+        
+        if (popupOverlay) {
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closePopup();
+            });
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popupOverlay && popupOverlay.classList.contains('active')) {
+                closePopup();
+            }
+        });
+    })();
+</script>
+
 </body>
 </html>
